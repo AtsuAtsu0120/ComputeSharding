@@ -1,0 +1,11 @@
+#pragma kernel CalculateParabolaCurve
+
+RWStructuredBuffer<float> buffer;
+float a, p, q;
+
+[numthreads(4, 1, 1)]
+void CalculateParabolaCurve(uint3 dispatchThreadID : SV_DispatchThreadID)
+{
+    float x = dispatchThreadID.x - p;
+    buffer[dispatchThreadID.x] = a * x * x + q;
+}
