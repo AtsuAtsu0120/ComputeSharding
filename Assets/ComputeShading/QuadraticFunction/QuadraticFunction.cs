@@ -51,7 +51,10 @@ namespace ComputeShading
             {
                 _matrix4X4Array[i] = Matrix4x4.TRS(new Vector3(i, result[i], 0), Quaternion.identity, Vector3.one);
             }
-            Graphics.DrawMeshInstanced(_mesh, 0, _material, _matrix4X4Array);
+
+            var rp = new RenderParams(_material);
+            Graphics.RenderMeshInstanced(rp, _mesh, 0, _matrix4X4Array);
+            Graphics.RenderMesh
         }
 
         private void OnDestroy()
