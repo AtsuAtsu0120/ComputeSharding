@@ -53,8 +53,7 @@ namespace ComputeShading
             }
 
             var rp = new RenderParams(_material);
-            Graphics.RenderMeshInstanced(rp, _mesh, 0, _matrix4X4Array);
-            Graphics.RenderMesh
+            Graphics.RenderMeshPrimitives(rp, _mesh, 0, 10);
         }
 
         private void OnDestroy()

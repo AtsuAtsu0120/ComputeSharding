@@ -11,6 +11,6 @@ void CalculateFibonacciSpiral(uint3 dispatchThreadID : SV_DispatchThreadID)
 {
     float rad = theta * dispatchThreadID.x * PI / 180;
     
-    buffer[dispatchThreadID.x].x = rad * cos(rad);
-    buffer[dispatchThreadID.x].y = rad * sin(rad);
+    buffer[dispatchThreadID.x].x = r * dispatchThreadID.x * cos(rad);
+    buffer[dispatchThreadID.x].y = r * dispatchThreadID.x * sin(rad);
 }
